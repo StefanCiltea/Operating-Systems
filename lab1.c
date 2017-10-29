@@ -11,13 +11,14 @@ int main()
   else if(pid == 0)
   {
 
-     char *arg[] = {"",NULL};
-     execve("/bin/ls",arg,NULL);
+      char *arg[] = {"",NULL};
+      execve("/bin/ls",arg,NULL);  	
+      printf("Parent PID = %d    ",getppid());
+      printf("Child PID=%d\n",getpid());
+      exit(88);
   }
   else
   {
-  	printf("Parent PID = %d    ",getppid());
-    printf("Child PID=%d\n",getpid());
   	wait();
     printf("Child finished.\n");
 
